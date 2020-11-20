@@ -152,7 +152,7 @@ func NewHttpPayload() HttpPayload {
 	return HttpPayload{"", "", "", map[string] string{}, ""}
 }
 
-// ParseBuffer parses a http stream to HttpPayload a structure
+// ParseBuffer parses a http stream to a HttpPayload
 func (payload *HttpPayload) ParseBuffer(buf []byte) {
 	for i, header := range bytes.Split(buf, []byte("\r\n")) {
 
