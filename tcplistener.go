@@ -10,6 +10,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // global server config
@@ -43,6 +44,8 @@ func HandleCmdLine() {
 
 // TcpListen runs tcp server
 func TcpListen() {
+    rand.Seed(time.Now().UTC().UnixNano())
+
 	l, err := net.Listen("tcp", ":" + strconv.Itoa(config.Port))
 	if err != nil {
 		log.Fatal(err)
